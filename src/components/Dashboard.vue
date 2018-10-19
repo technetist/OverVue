@@ -6,12 +6,15 @@
                 @click="signOut">
             Sign Out
         </button>
-        {{ $store.state }}
+        <hr>
+        <AddEvent />
+        <hr>
     </div>
 </template>
 
 <script>
     import {firebaseApp} from "../firebaseApp";
+    import AddEvent from './AddEvent';
 
     export default {
       methods: {
@@ -19,6 +22,9 @@
           this.$store.dispatch('signOut');
           firebaseApp.auth().signOut();
         }
+      },
+      components: {
+        AddEvent
       }
     }
 </script>
